@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 
     state = {
-        currentString: "hello World"
+        currentString: ""
     };
 
 
