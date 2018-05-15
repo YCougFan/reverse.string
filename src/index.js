@@ -1,20 +1,59 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// import SearchBar from './compons/SearchBar'
 
-var x = "hello world";
+ class ReversedString extends React.Component {
 
 
-var fun = (value) => {
+    state = {
+        currentString: "hello World"
+    };
 
-    var w = [];
-    for(var i = 1; i <= value.length; i++) {
-        w.push(value[value.length - i]);
+
+
+
+      fun = (value) => {
+
+         var w = [];
+         for(var i = 1; i <= value.length; i++) {
+             w.push(value[value.length - i]);
+         }
+         console.log(w);
+         return w.join("");
+     };
+
+
+
+    render() {
+
+        return(
+            <div>
+                <form>
+                    <input type="search" onChange={event =>
+                    {
+                        this.setState({
+                            currentString: event.target.value
+                        })
+                    }} />
+
+
+
+
+                </form>
+                <p >Reversed String: {this.fun(this.state.currentString)}</p>
+            </div>
+        );
     }
-    console.log(w);
-    return w.join("");
+
 }
 
 
 
 
-ReactDOM.render(<div>{fun(x)}</div>, document.getElementById('root'));
+
+
+
+
+
+
+ReactDOM.render(<ReversedString/>, document.getElementById('root'));
